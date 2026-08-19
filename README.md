@@ -56,35 +56,6 @@ On a 1 MiB INT8 vector workload (1,048,576 elements), the StreamOps accelerator 
 
 ---
 
-## System Architecture & Data Flow
-
-```
-                 Zynq-7020 Processing System (PS)
-    ┌─────────────────────────────────────────────────────────┐
-    │  ARM Cortex-A9 CPU              DDR3 Memory (512 MB)     │
-    └──────────────┬───────────────────────────▲──────────────┘
-                   │ M_AXI_GP0                 │ S_AXI_HP0
-                   │ (Control @ 0x40000000)    │ (Data Streaming)
-                   ▼                           │
-          AXI Interconnect             AXI Interconnect
-            /          \                       │
-           /            \                      │
-          ▼              ▼                     │
-   AXI DMA Ctrl    StreamOps Regs              │
-   (0x40400000)     (0x40000000)               │
-                                               ▼
-                                         AXI DMA Engine
-                                           (MM2S / S2MM)
-                                          /           \
-                           AXI4-Stream   /             \  AXI4-Stream
-                             (MM2S 64b) /               \ (S2MM 64b)
-                                       ▼                 \
-                          ┌───────────────────────────────┴─┐
-                          │    StreamOps Accelerator IP    │
-                          │   8x INT8 SIMD Pipelines        │
-                          └─────────────────────────────────┘
-```
-
 ### End-to-End Execution Sequence
 1. **Buffer Allocation**: Software allocates source `TX` (`0x01000000`) and destination `RX` (`0x01200000`) buffers in DDR3 RAM.
 2. **Cache Coherency**: CPU flushes cache lines (`Xil_DCacheFlushRange`) for the source buffer prior to DMA start.
