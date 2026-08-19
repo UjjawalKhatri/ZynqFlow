@@ -1,6 +1,5 @@
 # ==============================================================================
 # block_c.tcl  — Run in Vivado Tcl console:
-#   source C:/dma_accelerator/vivado/block_c.tcl
 # ==============================================================================
 
 puts ">>> Block C: StreamOps Integration"
