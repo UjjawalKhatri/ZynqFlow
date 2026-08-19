@@ -1,0 +1,38 @@
+# ==============================================================================
+# ZynqFlow .gitignore
+# ==============================================================================
+
+# --- Vivado / Xilinx ---
+*.jou
+*.log
+*.str
+*.xpr
+*.runs/
+*.cache/
+*.hw/
+*.ip_user_files/
+*.sim/
+*.gen/
+*.srcs/
+webtalk/
+.Xil/
+vivado_*.backup.*
+hd_visual/
+NA/
+
+# --- Vitis / SDK ---
+*.o
+*.d
+*.elf
+*.elf.size
+*.elf.unused
+Debug/
+Release/
+.metadata/
+
+# --- OS & Editor ---
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
