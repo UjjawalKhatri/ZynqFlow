@@ -1,10 +1,7 @@
 # ==============================================================================
 # create_bd.tcl
-# ZynqFlow Block B: Zynq PS + AXI DMA direct loopback block design
 # ==============================================================================
 #
-# Usage: In Vivado Tcl console (with project already open):
-#   source C:/dma_accelerator/vivado/create_bd.tcl
 #
 # This script creates a block design called "zynqflow_bd" with:
 #   - Zynq PS (ZedBoard preset, DDR3, M_AXI_GP0, S_AXI_HP0, IRQ_F2P)
